@@ -1,5 +1,4 @@
 # Assignment 4: Files, Exceptions, and Errors in Python
-
 # Task 1: Read a File and Handle Errors
 
 def read_file():
@@ -7,9 +6,13 @@ def read_file():
         with open("sample.txt", "r") as file:
             print("Reading 'sample.txt' content:\n")
             for line in file:
-                print(line.strip())  # Removes trailing newline
+                print(line.strip())
     except FileNotFoundError:
         print("Error: 'sample.txt' file not found. Please make sure the file exists in the same directory.")
+
+# Main execution
+if __name__ == "__main__":
+    read_file()
 
 # Task 2: Write and Append Data to a File
 def write_and_append_file():
