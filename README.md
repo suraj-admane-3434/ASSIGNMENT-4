@@ -1,6 +1,7 @@
 # Assignment 4: Files, Exceptions, and Errors in Python
 
 # Task 1: Read a File and Handle Errors
+
 def read_file():
     try:
         with open("sample.txt", "r") as file:
