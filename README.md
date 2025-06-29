@@ -1,41 +1,32 @@
-# Assignment 4: Files, Exceptions, and Errors in Python
+
 # Task 1: Read a File and Handle Errors
 
-def read_file():
-    try:
-        with open("sample.txt", "r") as file:
-            print("Reading 'sample.txt' content:\n")
-            for line in file:
-                print(line.strip())
-    except FileNotFoundError:
-        print("Error: 'sample.txt' file not found. Please make sure the file exists in the same directory.")
-
-# Main execution
-if __name__ == "__main__":
-    read_file()
+try:
+    with open("sample.txt", "r") as file:
+        for line in file:
+            print(line.strip())  # .strip() removes the newline character
+except FileNotFoundError:
+    print("Error: The file 'sample.txt' does not exist.")
+except Exception as e:
+    print("An unexpected error occurred:", e)
 
 # Task 2: Write and Append Data to a File
-def write_and_append_file():
-    # Step 1: Write user input to output.txt
-    user_input = input("Enter something to write to 'output.txt': ")
-    with open("output.txt", "w") as file:
-        file.write(user_input + "\n")
 
-    # Step 2: Append additional data
-    additional_data = input("Enter additional data to append: ")
-    with open("output.txt", "a") as file:
-        file.write(additional_data + "\n")
+# Step 1: Take user input and write to output.txt
+user_input = input("Enter some text to write to the file: ")
 
-    # Step 3: Read and display final content
-    print("\nFinal content of 'output.txt':")
-    with open("output.txt", "r") as file:
-        for line in file:
-            print(line.strip())
+with open("output.txt", "w") as file:
+    file.write(user_input + "\n")
 
-# Main Program Execution
-if __name__ == "__main__":
-    print("=== Task 1: Read File ===")
-    read_file()
+# Step 2: Append additional data to the same file
+additional_input = input("Enter some text to append to the file: ")
 
-    print("\n=== Task 2: Write and Append to File ===")
-    write_and_append_file()
+with open("output.txt", "a") as file:
+    file.write(additional_input + "\n")
+
+# Step 3: Read and display the final content of the file
+print("\nFinal content of 'output.txt':")
+with open("output.txt", "r") as file:
+    for line in file:
+        print(line.strip())
+        
